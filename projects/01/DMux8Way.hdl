@@ -16,30 +16,30 @@ CHIP DMux8Way {
     OUT a, b, c, d, e, f, g, h;
 
     PARTS:
-	Not(in=sel[2], out=nsel2);
-	Not(in=sel[1], out=nsel1);
-	Not(in=sel[0], out=nsel0);
+    Not(in=sel[1], out=nsel1);
+    Not(in=sel[2], out=nsel2);
+    Not(in=sel[0], out=nsel0);
+    
+    And(a=nsel2, b=nsel1, out=n2n1);
+    And(a=nsel2, b=sel[1], out=n2s1);
+    And(a=sel[2], b=nsel1, out=s2n1);
+    And(a=sel[2], b=sel[1], out=s2s1);
 
-	And(a=nsel2, b=nsel1, out=n2n1);
-	And(a=nsel2, b=sel[1], out=n2s1);
-	And(a=sel[2], b=nsel1, out=s2n1);
-	And(a=sel[2], b=sel[1], out=s2s1);
-	
-	And(a=n2n1, b=nsel0, out=aa);
-	And(a=n2n1, b=sel[0], out=bb);
-	And(a=n2s1, b=nsel0, out=cc);
-	And(a=n2s1, b=sel[0], out=dd);
-	And(a=s2n1, b=nsel0, out=ee);
-	And(a=s2n1, b=sel[0], out=ff);
-	And(a=s2s1, b=nsel0, out=gg);
-	And(a=s2s1, b=sel[0], out=hh);
+    And(a=n2n1, b=nsel0, out=aa);
+    And(a=n2n1, b=sel[0], out=bb);
+    And(a=n2s1, b=nsel0, out=cc);
+    And(a=n2s1, b=sel[0], out=dd);
+    And(a=s2n1, b=nsel0, out=ee);
+    And(a=s2n1, b=sel[0], out=ff);
+    And(a=s2s1, b=nsel0, out=gg);
+    And(a=s2s1, b=sel[0], out=hh);
 
-	And(a=in, b=aa, out=a);
-	And(a=in, b=bb, out=b);
-	And(a=in, b=cc, out=c);
-	And(a=in, b=dd, out=d);
-	And(a=in, b=ee, out=e);
-	And(a=in, b=ff, out=f);
-	And(a=in, b=gg, out=g);
-	And(a=in, b=hh, out=h);
+    And(a=in, b=aa, out=a);
+    And(a=in, b=bb, out=b);
+    And(a=in, b=cc, out=c);
+    And(a=in, b=dd, out=d);
+    And(a=in, b=ee, out=e);
+    And(a=in, b=ff, out=f);
+    And(a=in, b=gg, out=g);
+    And(a=in, b=hh, out=h);
 }
