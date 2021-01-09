@@ -36,22 +36,22 @@ CHIP Mux8Way16 {
     And(a=s2s1, b=nsel0, out=gg);
     And(a=s2s1, b=sel[0], out=hh);
 	
-	And(a=a[0], b=aa, out=a0);
-	And(a=b[0], b=bb, out=b0);
-	And(a=c[0], b=cc, out=c0);
-	And(a=d[0], b=dd, out=d0);
-	And(a=e[0], b=ee, out=e0);
-	And(a=f[0], b=ff, out=f0);
-	And(a=g[0], b=gg, out=g0);
-	And(a=h[0], b=hh, out=h0);
+    And(a=a[0], b=aa, out=a0);
+    And(a=b[0], b=bb, out=b0);
+    And(a=c[0], b=cc, out=c0);
+    And(a=d[0], b=dd, out=d0);
+    And(a=e[0], b=ee, out=e0);
+    And(a=f[0], b=ff, out=f0);
+    And(a=g[0], b=gg, out=g0);
+    And(a=h[0], b=hh, out=h0);
 
     Or(a=a0, b=b0, out=out00);
-	Or(a=out00, b=c0, out=out01);
-	Or(a=out01, b=d0, out=out02);
-	Or(a=out02, b=e0, out=out03);
-	Or(a=out03, b=f0, out=out04);
-	Or(a=out04, b=g0, out=out05);
-	Or(a=out05, b=h0, out=out[0]);
+    Or(a=out00, b=c0, out=out01);
+    Or(a=out01, b=d0, out=out02);
+    Or(a=out02, b=e0, out=out03);
+    Or(a=out03, b=f0, out=out04);
+    Or(a=out04, b=g0, out=out05);
+    Or(a=out05, b=h0, out=out[0]);
 
 
     And(a=a[1], b=aa, out=a1);
