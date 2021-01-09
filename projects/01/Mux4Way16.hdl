@@ -16,15 +16,15 @@ CHIP Mux4Way16 {
     OUT out[16];
 
     PARTS:
-	Not(in=sel[1], out=nsel1);
-	Not(in=sel[0], out=nsel0);
+    Not(in=sel[1], out=nsel1);
+    Not(in=sel[0], out=nsel0);
 
-	And(a=nsel1, b=nsel0, out=aa);
-	And(a=nsel1, b=sel[0], out=bb);
-	And(a=sel[1], b=nsel0, out=cc);
-	And(a=sel[1], b=sel[0], out=dd);
-	
-	And(a=a[0], b=aa, out=areal0);
+    And(a=nsel1, b=nsel0, out=aa);
+    And(a=nsel1, b=sel[0], out=bb);
+    And(a=sel[1], b=nsel0, out=cc);
+    And(a=sel[1], b=sel[0], out=dd);
+
+    And(a=a[0], b=aa, out=areal0);
     And(a=b[0], b=bb, out=breal0);
     And(a=c[0], b=cc, out=creal0);
     And(a=d[0], b=dd, out=dreal0);
