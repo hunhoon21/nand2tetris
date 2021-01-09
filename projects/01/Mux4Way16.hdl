@@ -1,0 +1,185 @@
+// This file is part of www.nand2tetris.org
+// and the book "The Elements of Computing Systems"
+// by Nisan and Schocken, MIT Press.
+// File name: projects/01/Mux4Way16.hdl
+
+/**
+ * 4-way 16-bit multiplexor:
+ * out = a if sel == 00
+ *       b if sel == 01
+ *       c if sel == 10
+ *       d if sel == 11
+ */
+
+CHIP Mux4Way16 {
+    IN a[16], b[16], c[16], d[16], sel[2];
+    OUT out[16];
+
+    PARTS:
+	Not(in=sel[1], out=nsel1);
+	Not(in=sel[0], out=nsel0);
+
+	And(a=nsel1, b=nsel0, out=aa);
+	And(a=nsel1, b=sel[0], out=bb);
+	And(a=sel[1], b=nsel0, out=cc);
+	And(a=sel[1], b=sel[0], out=dd);
+	
+	And(a=a[0], b=aa, out=areal0);
+    And(a=b[0], b=bb, out=breal0);
+    And(a=c[0], b=cc, out=creal0);
+    And(a=d[0], b=dd, out=dreal0);
+
+    Or(a=areal0, b=breal0, out=about0);
+    Or(a=about0, b=creal0, out=abcout0);
+    Or(a=abcout0, b=dreal0, out=out[0]);
+
+
+    And(a=a[1], b=aa, out=areal1);
+    And(a=b[1], b=bb, out=breal1);
+    And(a=c[1], b=cc, out=creal1);
+    And(a=d[1], b=dd, out=dreal1);
+
+    Or(a=areal1, b=breal1, out=about1);
+    Or(a=about1, b=creal1, out=abcout1);
+    Or(a=abcout1, b=dreal1, out=out[1]);
+
+
+    And(a=a[2], b=aa, out=areal2);
+    And(a=b[2], b=bb, out=breal2);
+    And(a=c[2], b=cc, out=creal2);
+    And(a=d[2], b=dd, out=dreal2);
+
+    Or(a=areal2, b=breal2, out=about2);
+    Or(a=about2, b=creal2, out=abcout2);
+    Or(a=abcout2, b=dreal2, out=out[2]);
+
+
+    And(a=a[3], b=aa, out=areal3);
+    And(a=b[3], b=bb, out=breal3);
+    And(a=c[3], b=cc, out=creal3);
+    And(a=d[3], b=dd, out=dreal3);
+
+    Or(a=areal3, b=breal3, out=about3);
+    Or(a=about3, b=creal3, out=abcout3);
+    Or(a=abcout3, b=dreal3, out=out[3]);
+
+
+    And(a=a[4], b=aa, out=areal4);
+    And(a=b[4], b=bb, out=breal4);
+    And(a=c[4], b=cc, out=creal4);
+    And(a=d[4], b=dd, out=dreal4);
+
+    Or(a=areal4, b=breal4, out=about4);
+    Or(a=about4, b=creal4, out=abcout4);
+    Or(a=abcout4, b=dreal4, out=out[4]);
+
+
+    And(a=a[5], b=aa, out=areal5);
+    And(a=b[5], b=bb, out=breal5);
+    And(a=c[5], b=cc, out=creal5);
+    And(a=d[5], b=dd, out=dreal5);
+
+    Or(a=areal5, b=breal5, out=about5);
+    Or(a=about5, b=creal5, out=abcout5);
+    Or(a=abcout5, b=dreal5, out=out[5]);
+
+
+    And(a=a[6], b=aa, out=areal6);
+    And(a=b[6], b=bb, out=breal6);
+    And(a=c[6], b=cc, out=creal6);
+    And(a=d[6], b=dd, out=dreal6);
+
+    Or(a=areal6, b=breal6, out=about6);
+    Or(a=about6, b=creal6, out=abcout6);
+    Or(a=abcout6, b=dreal6, out=out[6]);
+
+
+    And(a=a[7], b=aa, out=areal7);
+    And(a=b[7], b=bb, out=breal7);
+    And(a=c[7], b=cc, out=creal7);
+    And(a=d[7], b=dd, out=dreal7);
+
+    Or(a=areal7, b=breal7, out=about7);
+    Or(a=about7, b=creal7, out=abcout7);
+    Or(a=abcout7, b=dreal7, out=out[7]);
+
+
+    And(a=a[8], b=aa, out=areal8);
+    And(a=b[8], b=bb, out=breal8);
+    And(a=c[8], b=cc, out=creal8);
+    And(a=d[8], b=dd, out=dreal8);
+
+    Or(a=areal8, b=breal8, out=about8);
+    Or(a=about8, b=creal8, out=abcout8);
+    Or(a=abcout8, b=dreal8, out=out[8]);
+
+
+    And(a=a[9], b=aa, out=areal9);
+    And(a=b[9], b=bb, out=breal9);
+    And(a=c[9], b=cc, out=creal9);
+    And(a=d[9], b=dd, out=dreal9);
+
+    Or(a=areal9, b=breal9, out=about9);
+    Or(a=about9, b=creal9, out=abcout9);
+    Or(a=abcout9, b=dreal9, out=out[9]);
+
+
+    And(a=a[10], b=aa, out=areal10);
+    And(a=b[10], b=bb, out=breal10);
+    And(a=c[10], b=cc, out=creal10);
+    And(a=d[10], b=dd, out=dreal10);
+
+    Or(a=areal10, b=breal10, out=about10);
+    Or(a=about10, b=creal10, out=abcout10);
+    Or(a=abcout10, b=dreal10, out=out[10]);
+
+
+    And(a=a[11], b=aa, out=areal11);
+    And(a=b[11], b=bb, out=breal11);
+    And(a=c[11], b=cc, out=creal11);
+    And(a=d[11], b=dd, out=dreal11);
+
+    Or(a=areal11, b=breal11, out=about11);
+    Or(a=about11, b=creal11, out=abcout11);
+    Or(a=abcout11, b=dreal11, out=out[11]);
+
+
+    And(a=a[12], b=aa, out=areal12);
+    And(a=b[12], b=bb, out=breal12);
+    And(a=c[12], b=cc, out=creal12);
+    And(a=d[12], b=dd, out=dreal12);
+
+    Or(a=areal12, b=breal12, out=about12);
+    Or(a=about12, b=creal12, out=abcout12);
+    Or(a=abcout12, b=dreal12, out=out[12]);
+
+
+    And(a=a[13], b=aa, out=areal13);
+    And(a=b[13], b=bb, out=breal13);
+    And(a=c[13], b=cc, out=creal13);
+    And(a=d[13], b=dd, out=dreal13);
+
+    Or(a=areal13, b=breal13, out=about13);
+    Or(a=about13, b=creal13, out=abcout13);
+    Or(a=abcout13, b=dreal13, out=out[13]);
+
+
+    And(a=a[14], b=aa, out=areal14);
+    And(a=b[14], b=bb, out=breal14);
+    And(a=c[14], b=cc, out=creal14);
+    And(a=d[14], b=dd, out=dreal14);
+
+    Or(a=areal14, b=breal14, out=about14);
+    Or(a=about14, b=creal14, out=abcout14);
+    Or(a=abcout14, b=dreal14, out=out[14]);
+
+
+    And(a=a[15], b=aa, out=areal15);
+    And(a=b[15], b=bb, out=breal15);
+    And(a=c[15], b=cc, out=creal15);
+    And(a=d[15], b=dd, out=dreal15);
+
+    Or(a=areal15, b=breal15, out=about15);
+    Or(a=about15, b=creal15, out=abcout15);
+    Or(a=abcout15, b=dreal15, out=out[15]);
+}
